@@ -1,8 +1,7 @@
-import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>
+    <div className="border bg-red-500">
       Test
     </div>
   )}

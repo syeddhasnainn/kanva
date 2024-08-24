@@ -1,24 +1,24 @@
 "use client";
 import { useEditor } from "@/features/editor/hooks/use-editor";
 import { useEffect, useRef } from "react";
-import * as fabric from 'fabric'; // v6
+// import * as fabric from 'fabric'; // v6
 
 export default function Editor() {
-  const { init } = useEditor();
+//   const { init } = useEditor();
 
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const canvas = new fabric.Canvas(canvasRef.current, {
-    controlsAboveOverlay: true,
-    preserveObjectStacking: true,
-  });
+//   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+//   const containerRef = useRef<HTMLDivElement | null>(null);
+//   const canvas = new fabric.Canvas(canvasRef.current, {
+//     controlsAboveOverlay: true,
+//     preserveObjectStacking: true,
+//   });
 
-  useEffect(() => {
-    init({
-      initialCanvas: canvas,
-      initialContainer: containerRef.current,
-    });
-  }, [init]);
+//   useEffect(() => {
+//     init({
+//       initialCanvas: canvas,
+//       initialContainer: containerRef.current,
+//     });
+//   }, [init]);
 
   return (
     <main className="h-full flex bg-red-500">

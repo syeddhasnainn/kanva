@@ -1,5 +1,5 @@
+import { fabric } from 'fabric';
 import { useCallback } from "react";
-import * as fabric from 'fabric'; // v6
 
 export const useEditor = () => {
   const init = useCallback(
@@ -7,8 +7,8 @@ export const useEditor = () => {
       initialCanvas,
       initialContainer,
     }: {
-      initialCanvas: fabric.Canvas | null;
-      initialContainer: HTMLDivElement | null;
+      initialCanvas: fabric.Canvas;
+      initialContainer: HTMLDivElement;
     }) => {
       const initialWorkspace = new fabric.Rect({
         width: 900,
@@ -30,6 +30,14 @@ export const useEditor = () => {
       initialCanvas.add(initialWorkspace)
       initialCanvas.centerObject(initialWorkspace)
       initialCanvas.clipPath = initialWorkspace
+
+      const test = new fabric.Rect({
+        height: 100,
+        width:100,
+        fill: "black"
+      })
+      initialCanvas.add(test)
+      initialCanvas.centerObject(test)
     },
     []
   );

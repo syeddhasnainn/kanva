@@ -1,31 +1,33 @@
 "use client";
+import { fabric } from 'fabric';
 import { useEditor } from "@/features/editor/hooks/use-editor";
-import { useEffect, useRef } from "react";
-// import * as fabric from 'fabric'; // v6
+import { useEffect, useRef, useState } from "react";
 
 export default function Editor() {
-//   const { init } = useEditor();
+  const { init } = useEditor();
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-//   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-//   const containerRef = useRef<HTMLDivElement | null>(null);
-//   const canvas = new fabric.Canvas(canvasRef.current, {
-//     controlsAboveOverlay: true,
-//     preserveObjectStacking: true,
-//   });
+  
 
-//   useEffect(() => {
-//     init({
-//       initialCanvas: canvas,
-//       initialContainer: containerRef.current,
-//     });
-//   }, [init]);
+  useEffect(() => {
+    const canvas = new fabric.Canvas(canvasRef.current, {
+      controlsAboveOverlay:true,
+      preserveObjectStacking: true
+    });
+
+    init({
+      initialCanvas: canvas,
+      initialContainer:containerRef.current! 
+    })
+  }, [init])
+
 
   return (
-    <main className="h-full flex bg-red-500">
-      {/* <div className="flex-1 h-full bg-gray-400 border" ref={containerRef}> */}
-        {/* <canvas width={300} height={300} ref={canvasRef} /> */}
-        <div className="bg-red-400">hasnain</div>
-
-    </main>
+    <div className='h-full flex flex-col '>
+      <div className='flex-1 h-full' ref={containerRef} >
+        <canvas ref={canvasRef} />
+      </div>
+    </div>
   );
 }
